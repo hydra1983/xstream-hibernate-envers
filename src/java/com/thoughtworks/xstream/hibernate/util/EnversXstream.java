@@ -20,6 +20,11 @@ public class EnversXstream {
 				return new EnversMapper(next);
 			}
 		};
+		
+		xstream.registerConverter(new EnversCollectionConverter(xstream.getMapper()));
+		xstream.registerConverter(new EnversMapConverter(xstream.getMapper()));
+		xstream.registerConverter(new EnversSortedSetConverter(xstream.getMapper()));
+		xstream.registerConverter(new EnversSortedMapConverter(xstream.getMapper()));
 
 		xstream.registerConverter(new HibernateProxyConverter());
 
@@ -28,11 +33,6 @@ public class EnversXstream {
 		xstream.registerConverter(new HibernatePersistentSortedMapConverter(xstream.getMapper()));
 		xstream.registerConverter(new HibernatePersistentSortedSetConverter(xstream.getMapper()));
 
-		xstream.registerConverter(new EnversCollectionConverter(xstream.getMapper()));
-		xstream.registerConverter(new EnversMapConverter(xstream.getMapper()));
-		xstream.registerConverter(new EnversSortedSetConverter(xstream.getMapper()));
-		xstream.registerConverter(new EnversSortedMapConverter(xstream.getMapper()));
-		
 		return xstream;
 	}
 }

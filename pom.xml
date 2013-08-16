@@ -170,4 +170,5 @@
 			<artifactId>junit</artifactId>
 		</dependency>
 	</dependencies>
+</distributionManagement>
 </project>
